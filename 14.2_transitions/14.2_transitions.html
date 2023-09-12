@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>14.2</title>
+</head>
+<style>
+  body {
+    margin-top: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    align-items: center;
+    background-color: white;
+    height: 100vh;
+    width: 100vw;
+    text-align: center;
+  }
+
+  .up {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    gap: 120px;
+
+  }
+
+  .down {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    gap: 90px;
+  }
+
+  .parent-box-x,
+  .parent-box-y,
+  .parent-box-r,
+  .parent-box-scale,
+  .parent-box-skew {
+    position: relative;
+    overflow: hidden;
+
+  }
+
+  .box-x,
+  .box-r,
+  .box-y,
+  .box-scale,
+  .box-skew {
+    width: 200px;
+    height: 100px;
+    border: 1px solid black;
+    position: relative;
+
+  }
+
+  /* X */
+  .box-x::before {
+    content: "translateX";
+    position: absolute;
+    width: 200px;
+    height: 100px;
+    transition: 1s ease-in-out;
+    transform: translateX(-100%);
+    left: 0;
+  }
+
+  .box-x:hover::before {
+    transform: translateX(0);
+    background-color: blue;
+  }
+
+  /* Y */
+  .box-y::before {
+    content: "Cool!";
+    color: black;
+    position: absolute;
+    width: 200px;
+    height: 100px;
+    transition: 1s ease-in-out;
+    transform: translateY(-100%);
+    left: 0;
+  }
+
+  .box-y:hover::before {
+    transform: translateY(0);
+    background-color: Red;
+    animation: text 2s ease-in-out;
+  }
+
+  .text:hover::before {
+    transform: translateY(0);
+    color: black;
+    animation: text 2s ease-in-out;
+  }
+
+  /* Rotate */
+  .box-r::before {
+    content: "";
+    position: absolute;
+    width: 200px;
+    height: 100px;
+    transition: 1s ease-in-out;
+    transform: Rotate(90deg);
+    left: 0;
+    transform-origin: 0% 0%;
+
+  }
+
+  .box-r:hover::before {
+    transform: Rotate(0);
+    background-color: yellow;
+  }
+
+  /* scale */
+  .box-scale::before {
+    content: "Scale";
+    color: azure;
+    position: absolute;
+    width: 200px;
+    height: 100px;
+    transition: 1s ease-in-out;
+    transform: scale(6);
+    left: 0;
+  }
+
+  .box-scale:hover::before {
+    transform: scale(1);
+    background-color: black;
+    font-size: 300%;
+  }
+
+  /* Skew */
+  .box-skew::before {
+    content: "";
+    position: absolute;
+    width: 200px;
+    height: 100px;
+    /* transition: 1s ease-in-out; */
+    transform: skew();
+    left: 0;
+  }
+
+  .box-skew:hover::before {
+    transform: skew();
+    background-color: dark plum;
+  }
+</style>
+
+<body>
+  <!-- UP -->
+  <div class="up">
+    <div class="parent-box-y">
+      <div class="box-y">translateY</div>
+         </div>
+    <div class="parent-box-x">
+      <div class="box-x">translateX</div>
+    </div>
+    <div class="parent-box-r">
+      <div class="box-r">Rotate</div>
+    </div>
+  </div>
+  <!-- down -->
+  <div class="down">
+    <div class="parent-box-scale">
+      <div class="box-scale">Scale</div>
+    </div>
+    <div class="parent-box-skew">
+      <div class="box-skew">Skew</div>
+    </div>
+  </div>
+</body>
+
+</html>
