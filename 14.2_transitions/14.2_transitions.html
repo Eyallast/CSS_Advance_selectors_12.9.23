@@ -37,11 +37,10 @@
   .parent-box-x,
   .parent-box-y,
   .parent-box-r,
-  .parent-box-scale,
-  .parent-box-skew {
+  .parent-box-scale {
     position: relative;
     overflow: hidden;
-
+    /* .parent-box-skew */
   }
 
   .box-x,
@@ -53,7 +52,7 @@
     height: 100px;
     border: 1px solid black;
     position: relative;
-    display: flex;    
+    display: flex;
     justify-content: center;
     align-items: center;
   }
@@ -64,6 +63,9 @@
     position: absolute;
     width: 200px;
     height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     transition: 1s ease-in-out;
     transform: translateX(-100%);
     left: 0;
@@ -80,6 +82,9 @@
     color: black;
     position: absolute;
     width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 100px;
     transition: 1s ease-in-out;
     transform: translateY(-100%);
@@ -89,7 +94,7 @@
   .box-y:hover::before {
     transform: translateY(0);
     background-color: Red;
-    animation: text 2s ease-in-out;
+    /* animation: text 2s ease-in-out; */
   }
 
   .text:hover::before {
@@ -104,6 +109,9 @@
     position: absolute;
     width: 200px;
     height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     transition: 1s ease-in-out;
     transform: Rotate(90deg);
     left: 0;
@@ -119,64 +127,96 @@
   /* scale */
   .box-scale::before {
     content: "Scale";
-    display: flex;    
+    display: flex;
     justify-content: center;
     align-items: center;
     color: azure;
     position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 200px;
     height: 100px;
     transition: 1s ease-in-out;
     opacity: 0;
     transform: scale(8);
     left: 0;
-    top:0;
+    top: 0;
   }
 
   .box-scale:hover::before {
     transform: scale(1);
     background-color: black;
     opacity: 1;
-    
+
   }
 
   /* Skew */
+ .box-skew{
+    transition: all 1s;
+}
   .box-skew::before {
     content: "";
     position: absolute;
+    top: 0;
     width: 200px;
-    height: 100px;
-    transition: 1s ease-in-out;
-    transform: skew(-20deg);
-    /* left: 0; */
+    height: 100px ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 1s;
+    z-index: -1;
+    transform: skew(0deg, 0deg);
+    background-color: darkmagenta;
+    opacity: 0;
+    transform: translate(-50%,-50%);
+   
   }
 
-  .box-skew:hover::before {
-    transform: skew(0);
-    background-color: dark plum;
+
+  .box-skew:hover {
+    transform: skew(-20deg);
+
   }
+  .box-skew:hover {
+    transform:  skewY(-5deg);
+  }
+  .box-skew::after {
+    content: "";
+    font-size: 2rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    transition: transform 1s;
+}
+
+.box-skew:hover::after {
+    transform:  skewY(10deg) translate(-50%,-50%);
+ 
+}
 </style>
 
 <body>
   <!-- UP -->
   <div class="up">
     <div class="parent-box-y">
-      <div class="box-y">translateY</div>
-         </div>
+      <div class="box-y"><span>translateY</span></div>
+    </div>
     <div class="parent-box-x">
-      <div class="box-x">translateX</div>
+      <div class="box-x"><span>translateX</span></div>
     </div>
     <div class="parent-box-r">
-      <div class="box-r">Rotate</div>
+      <div class="box-r"><span>Rotate</span></div>
     </div>
   </div>
   <!-- down -->
   <div class="down">
     <div class="parent-box-scale">
-      <div class="box-scale">Scale</div>
+      <div class="box-scale"><span>Scale</span></div>
     </div>
     <div class="parent-box-skew">
-      <div class="box-skew">Skew</div>
+      <div class="box-skew"><span>Skew</span></div>
     </div>
   </div>
 </body>
