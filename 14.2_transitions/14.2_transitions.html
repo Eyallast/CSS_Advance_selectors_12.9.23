@@ -53,7 +53,9 @@
     height: 100px;
     border: 1px solid black;
     position: relative;
-
+    display: flex;    
+    justify-content: center;
+    align-items: center;
   }
 
   /* X */
@@ -98,7 +100,7 @@
 
   /* Rotate */
   .box-r::before {
-    content: "";
+    content: "Roatate";
     position: absolute;
     width: 200px;
     height: 100px;
@@ -117,19 +119,25 @@
   /* scale */
   .box-scale::before {
     content: "Scale";
+    display: flex;    
+    justify-content: center;
+    align-items: center;
     color: azure;
     position: absolute;
     width: 200px;
     height: 100px;
     transition: 1s ease-in-out;
-    transform: scale(6);
+    opacity: 0;
+    transform: scale(8);
     left: 0;
+    top:0;
   }
 
   .box-scale:hover::before {
     transform: scale(1);
     background-color: black;
-    font-size: 300%;
+    opacity: 1;
+    
   }
 
   /* Skew */
@@ -138,13 +146,13 @@
     position: absolute;
     width: 200px;
     height: 100px;
-    /* transition: 1s ease-in-out; */
-    transform: skew();
-    left: 0;
+    transition: 1s ease-in-out;
+    transform: skew(-20deg);
+    /* left: 0; */
   }
 
   .box-skew:hover::before {
-    transform: skew();
+    transform: skew(0);
     background-color: dark plum;
   }
 </style>
