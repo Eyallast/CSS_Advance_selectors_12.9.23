@@ -1,0 +1,61 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: white;
+}
+
+nav {
+  background-color: white;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+li {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  padding: 10px 20px;
+  display: block;
+  position: relative;
+}
+
+a::before,
+a::after {
+  content: "";
+  position: absolute;
+  height: 1px;
+  background-color: black;
+  transition: 0.8s ease;
+}
+
+a::before {
+  transform-origin: left;
+  left: 0;
+  right: 0;
+  transform: scaleX(0);
+}
+
+a::after {
+  transform-origin: right;
+  transform: scaleX(0);
+  top: 30px;
+  right: 0;
+}
+
+a:hover::before {
+  transform: scaleX(1);
+}
+
+a:hover::after {
+  transform: scaleX(1);
+  width: 100%;
+}
